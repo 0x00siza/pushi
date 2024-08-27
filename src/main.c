@@ -1,7 +1,7 @@
 
 #include "push_swap.h"
 
-static void	initStack(t_list **stack, int argc, char **argv)
+void	init_stack(t_list **stack, int argc, char **argv)
 {
 	t_list	*new;
 	char	**args;
@@ -46,7 +46,7 @@ int	main(int argc, char **argv)
 	stack_b = (t_list **)malloc(sizeof(t_list));
 	*stack_a = NULL;
 	*stack_b = NULL;
-	initStack(stack_a, argc, argv);
+	init_stack(stack_a, argc, argv);
 	if (is_sorted(stack_a))
 	{
 		free_stack(stack_a);

@@ -1,30 +1,47 @@
-NAME = push_swap
 
+
+NAME = push_swap
+CHECK = checker
 
 SRCS =  $(wildcard src/*.c )
+OBJS 	= ${SRCS:.c=.o}
 
-
-OBJS = ${SRCS:.c=.o}
+CHECK_SRCS = $(wildcard src_bonus/*.c )
 CHECK_OBJS = ${CHECK_SRCS:.c=.o}
 
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror -Iincludes
+HEADER	= -Iincludes
 
-RM = rm -rf
+CC 		= gcc
+CFLAGS = -Werror -Wall -Wextra 
 
-all: ${NAME} ${CHECK}
-${NAME}: ${OBJS}
-	@${MAKE} -C ./libft
-	@${CC} ${CFLAGS} ${OBJS} ./libft/libft.a -o ${NAME}
+.c.o:		%.o : %.c  
+					@$(CC) ${CFLAGS} ${HEADER} -c $< -o $(<:.c=.o)
 
-clean: 
-	@${MAKE} -C ./libft fclean
-	@${RM} ${OBJS}
+all: 		${NAME}
+
+${NAME}:	${OBJS}
+			
+					@make re -C ./libft
+			 		@$(CC) ${CFLAGS} ${OBJS} -Llibft -lft -o ${NAME}
+			
+bonus:	${CHECK}
+
+${CHECK}: ${CHECK_OBJS} 
+				
+					@make re -C ./libft
+					@$(CC) ${CFLAGS} ${CHECK_OBJS} -Llibft -lft -o ${CHECK}
 
 
-fclean: clean
-	@${RM} ${NAME}
 
-re: fclean all
+clean:
+					@make clean -C ./libft
+					@rm -f ${OBJS} ${CHECK_OBJS}
 
-.PHONY: all clean fclean re
+fclean: 	clean
+					@make fclean -C ./libft
+					@rm -f $(NAME)
+					@rm -f ${CHECK}
+
+re:			fclean all
+
+re_bonus:	fclean bonus

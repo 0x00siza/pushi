@@ -10,49 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-static int	ft_skip(const char *str)
+long long	ft_atoi(const char *str)
 {
-	int	i;
+	long long	i;
+	long long	number;
+	int		sign;
 
 	i = 0;
-	while ((str[i] != '\0' ) && (str[i] == '\t' || 
-			str[i] == '\n' || str[i] == '\v' || 
-			str[i] == '\f' || str[i] == '\r' || str[i] == ' '))
-		i++;
-	return (i);
-}
-
-static int	atoi_helper(const char *str, int sign, long long n, int i)
-{
-	long long	nbr;
-
-	while (str[i] != '\0' && (str[i] >= '0' && str[i] <= '9'))
-	{
-		nbr = n;
-		n = n * 10 + str[i] - '0';
-		if (nbr != n / 10 && sign == 1)
-			return (-1);
-		else if (nbr != n / 10 && sign == -1)
-			return (0);
-		i++;
-	}
-	return (n * sign);
-}
-
-int	ft_atoi(const char *str)
-{
-	int			i;
-	long long	n;
-	int			sign;
-
-	n = 0;
+	number = 0;
 	sign = 1;
-	i = ft_skip(str);
+	while (str[i] && (str[i] == 32 || (str[i] >= 9 && str[i] <= 13)))
+		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
-			sign *= -1;
+			sign = -1;
 		i++;
 	}
-	return (atoi_helper(str, sign, n, i));
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		number = (number * 10) + (str[i] - '0');
+		i++;
+	}
+	return (number * sign);
 }

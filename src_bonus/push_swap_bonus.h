@@ -22,11 +22,7 @@ int		is_sorted(t_list **stack);
 int		get_distance(t_list **stack, int index);
 void	free_stack(t_list **stack);
 void	ft_free(char **str);
-
-void	radix_sort(t_list **stack_a, t_list **stack_b);
-void	simple_sort(t_list **stack_a, t_list **stack_b);
 void	index_stack(t_list **stack);
-void	sort_5(t_list **stack_a, t_list **stack_b);
 void	init_stack(t_list **stack, int argc, char **argv);
 int		swap(t_list **stack);
 int		push(t_list **stack_to, t_list **stack_from);

@@ -1,6 +1,5 @@
+#include "push_swap_bonus.h"
 
-#include "push_swap.h"
-#include <stdio.h>
 static int	ft_contains(int num, char **argv, int i)
 {
 	i++;
@@ -32,7 +31,7 @@ static int	ft_isnum(char *num)
 void	ft_check_args(int argc, char **argv)
 {
 	int		i;
-	long long	tmp;
+	long	tmp;
 	char	**args;	
 
 	i = 0;
@@ -42,31 +41,16 @@ void	ft_check_args(int argc, char **argv)
 	{
 		i = 1;
 		args = argv;
-		printf("ho\n");
 	}
 	while (args[i])
 	{
 		tmp = ft_atoi(args[i]);
-		printf("%lld\n",tmp);
 		if (!ft_isnum(args[i]))
-		{
 			ft_error("Error");
-			printf("a\n");
-		}
-			
 		if (ft_contains(tmp, args, i))
-		{
 			ft_error("Error");
-			printf("b\n");
-		}
-			
 		if (tmp < -2147483648 || tmp > 2147483647)
-		{
 			ft_error("Error");
-			printf("e\n");
-		}
-			
-		printf("we\n");
 		i++;
 	}
 	if (argc == 2)

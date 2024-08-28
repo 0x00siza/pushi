@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 static int	is_valid(char *line)
 {
@@ -46,13 +46,13 @@ static void	do_command_2(char *line, t_list **stack_a, t_list **stack_b)
 		rotate(stack_b);
 	}
 	if (!(ft_strcmp(line, "rra")))
-		reverseRotate(stack_a);
+		reverse_rotate(stack_a);
 	if (!(ft_strcmp(line, "rrb")))
-		reverseRotate(stack_b);
+		reverse_rotate(stack_b);
 	if (!(ft_strcmp(line, "rrr")))
 	{
-		reverseRotate(stack_a);
-		reverseRotate(stack_b);
+		reverse_rotate(stack_a);
+		reverse_rotate(stack_b);
 	}
 }
 

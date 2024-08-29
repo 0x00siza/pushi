@@ -42,7 +42,6 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (-1);
 	ft_check_args(argc, argv);
-	printf("hi\n");
 	stack_a = (t_list **)malloc(sizeof(t_list));
 	stack_b = (t_list **)malloc(sizeof(t_list));
 	*stack_a = NULL;

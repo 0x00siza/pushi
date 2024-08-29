@@ -42,31 +42,16 @@ void	ft_check_args(int argc, char **argv)
 	{
 		i = 1;
 		args = argv;
-		printf("ho\n");
 	}
 	while (args[i])
 	{
 		tmp = ft_atoi(args[i]);
-		printf("%lld\n",tmp);
 		if (!ft_isnum(args[i]))
-		{
 			ft_error("Error");
-			printf("a\n");
-		}
-			
 		if (ft_contains(tmp, args, i))
-		{
 			ft_error("Error");
-			printf("b\n");
-		}
-			
 		if (tmp < -2147483648 || tmp > 2147483647)
-		{
 			ft_error("Error");
-			printf("e\n");
-		}
-			
-		printf("we\n");
 		i++;
 	}
 	if (argc == 2)

@@ -107,5 +107,4 @@ int	main(int argc, char **argv)
 		line = get_next_line(0);
 	}
 	print_checker_res(stack_a, stack_b);
-	return (0);
 }

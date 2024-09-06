@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   reverse_rotate_command_bonus.c                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ner-roui <ner-roui@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/06 11:44:33 by ner-roui          #+#    #+#             */
+/*   Updated: 2024/09/06 11:44:33 by ner-roui         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap_bonus.h"
 
@@ -14,8 +25,8 @@ int	reverse_rotate(t_list **stack)
 	{
 		if (head->next->next == NULL)
 		{
-			 head->next = NULL;
-			 break ;
+			head -> next = NULL;
+			break ;
 		}
 		head = head->next;
 	}

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ner-roui <ner-roui@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/06 11:37:20 by ner-roui          #+#    #+#             */
+/*   Updated: 2024/09/06 11:37:20 by ner-roui         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap_bonus.h"
 
 static int	is_valid(char *line)
@@ -19,37 +31,37 @@ static int	is_valid(char *line)
 
 static void	do_command_1(char *line, t_list **stack_a, t_list **stack_b)
 {
-	if (!(ft_strcmp(line, "sa")))
+	if (!(ft_strcmp(line, "sa\n")))
 		swap(stack_a);
-	if (!(ft_strcmp(line, "sb")))
+	if (!(ft_strcmp(line, "sb\n")))
 		swap(stack_b);
-	if (!(ft_strcmp(line, "ss")))
+	if (!(ft_strcmp(line, "ss\n")))
 	{
 		swap(stack_a);
 		swap(stack_b);
 	}
-	if (!(ft_strcmp(line, "pa")))
+	if (!(ft_strcmp(line, "pa\n")))
 		push(stack_a, stack_b);
-	if (!(ft_strcmp(line, "pb")))
+	if (!(ft_strcmp(line, "pb\n")))
 		push(stack_b, stack_a);
 }
 
 static void	do_command_2(char *line, t_list **stack_a, t_list **stack_b)
 {
-	if (!(ft_strcmp(line, "ra")))
+	if (!(ft_strcmp(line, "ra\n")))
 		rotate(stack_a);
-	if (!(ft_strcmp(line, "rb")))
+	if (!(ft_strcmp(line, "rb\n")))
 		rotate(stack_b);
-	if (!(ft_strcmp(line, "rr")))
+	if (!(ft_strcmp(line, "rr\n")))
 	{
 		rotate(stack_a);
 		rotate(stack_b);
 	}
-	if (!(ft_strcmp(line, "rra")))
+	if (!(ft_strcmp(line, "rra\n")))
 		reverse_rotate(stack_a);
-	if (!(ft_strcmp(line, "rrb")))
+	if (!(ft_strcmp(line, "rrb\n")))
 		reverse_rotate(stack_b);
-	if (!(ft_strcmp(line, "rrr")))
+	if (!(ft_strcmp(line, "rrr\n")))
 	{
 		reverse_rotate(stack_a);
 		reverse_rotate(stack_b);
@@ -82,19 +94,16 @@ int	main(int argc, char **argv)
 	*stack_b = NULL;
 	ft_check_args(argc, argv);
 	init_stack(stack_a, argc, argv);
-    line = get_next_line(0);
+	line = get_next_line(0);
 	while (line)
 	{
 		if (is_valid(line))
 		{
 			do_command_1(line, stack_a, stack_b);
-            do_command_2(line, stack_a, stack_b);
+			do_command_2(line, stack_a, stack_b);
 		}
-        else
-        {
-            ft_error("Error");
-            return -1;
-        }
+		else
+			ft_error("Error");
 		line = get_next_line(0);
 	}
 	print_checker_res(stack_a, stack_b);

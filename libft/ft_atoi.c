@@ -5,16 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ner-roui <ner-roui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/07 11:15:46 by ner-roui          #+#    #+#             */
-/*   Updated: 2024/09/07 11:15:46 by ner-roui         ###   ########.fr       */
+/*   Created: 2024/09/07 12:12:35 by ner-roui          #+#    #+#             */
+/*   Updated: 2024/09/07 12:12:35 by ner-roui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-long long	ft_atoi(const char *str)
+#include "libft.h"
+
+long	ft_atoi(const char *str)
 {
 	long	i;
 	long	number;
-    int		sign;
+	int		sign;
 
 	i = 0;
 	number = 0;

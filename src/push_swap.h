@@ -55,5 +55,9 @@ int		rr(t_list **stack_a, t_list **stack_b);
 int		rra(t_list **stack_a);
 int		rrb(t_list **stack_b);
 int		rrr(t_list **stack_a, t_list **stack_b);
+void	sort_1(t_list **stack_a);
+void	sort_3(t_list **stack_a);
+void	sort_4(t_list **stack_a, t_list **stack_b);
+void	sort_5(t_list **stack_a, t_list **stack_b);
 
 #endif

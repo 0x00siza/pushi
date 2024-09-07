@@ -18,7 +18,7 @@
 # include <stddef.h>
 
 char	*get_next_line(int fd);
-long long	ft_atoi(const char *str);
+long	ft_atoi(const char *str);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
 int		ft_isalpha(int c);

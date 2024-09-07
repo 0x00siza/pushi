@@ -5,16 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ner-roui <ner-roui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/12 17:16:15 by ner-roui          #+#    #+#             */
-/*   Updated: 2023/11/28 12:28:37 by ner-roui         ###   ########.fr       */
+/*   Created: 2024/09/07 11:15:46 by ner-roui          #+#    #+#             */
+/*   Updated: 2024/09/07 11:15:46 by ner-roui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 long long	ft_atoi(const char *str)
 {
-	long long	i;
-	long long	number;
-	int		sign;
+	long	i;
+	long	number;
+    int		sign;
 
 	i = 0;
 	number = 0;

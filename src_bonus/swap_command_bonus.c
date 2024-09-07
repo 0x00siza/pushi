@@ -51,7 +51,7 @@ int	sb(t_list **stack_b)
 }
 
 int	ss(t_list **stack_a, t_list **stack_b)
-{	
+{
 	if ((ft_lstsize(*stack_a) < 2) || (ft_lstsize(*stack_b) < 2))
 		return (-1);
 	swap(stack_a);

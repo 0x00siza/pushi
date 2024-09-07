@@ -43,7 +43,7 @@ static int	ft_isnum(char *num)
 void	ft_check_args(int argc, char **argv)
 {
 	int		i;
-	long long	tmp;
+	long	tmp;
 	char	**args;	
 
 	i = 0;

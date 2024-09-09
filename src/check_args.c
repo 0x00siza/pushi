@@ -12,13 +12,21 @@
 
 #include "push_swap.h"
 
-static int	ft_contains(int num, char **argv, int i)
+int	check_duplicate(int *arr, int count)
 {
-	i++;
-	while (argv[i])
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < count)
 	{
-		if (ft_atoi(argv[i]) == num)
-			return (1);
+		j = i + 1;
+		while (j < count)
+		{
+			if (arr[i] == arr[j])
+				return (1);
+			j++;
+		}
 		i++;
 	}
 	return (0);
@@ -40,31 +48,17 @@ static int	ft_isnum(char *num)
 	return (1);
 }
 
-void	ft_check_args(int argc, char **argv)
+void	ft_check_args(int *arr, int count)
 {
 	int		i;
-	long	tmp;
-	char	**args;	
 
 	i = 0;
-	if (argc == 2)
-		args = ft_split(argv[1], ' ');
-	else
+	while (i < count)
 	{
-		i = 1;
-		args = argv;
-	}
-	while (args[i])
-	{
-		tmp = ft_atoi(args[i]);
-		if (!ft_isnum(args[i]))
+		if (!ft_isnum(ft_itoa(arr[i])))
 			ft_error("Error");
-		if (ft_contains(tmp, args, i))
-			ft_error("Error");
-		if (tmp < -2147483648 || tmp > 2147483647)
+		if (check_duplicate(arr, count))
 			ft_error("Error");
 		i++;
 	}
-	if (argc == 2)
-		ft_free(args);
 }

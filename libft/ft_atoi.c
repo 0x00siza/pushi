@@ -12,7 +12,13 @@
 
 #include "libft.h"
 
-long	ft_atoi(const char *str)
+static void	ft_error(char *msg)
+{
+	ft_putendl_fd(msg, 1);
+	exit(0);
+}
+
+int	ft_atoi(const char *str)
 {
 	long	i;
 	long	number;
@@ -34,5 +40,7 @@ long	ft_atoi(const char *str)
 		number = (number * 10) + (str[i] - '0');
 		i++;
 	}
+	if (number < INT_MIN || number > INT_MAX)
+		ft_error("Error");
 	return (number * sign);
 }

@@ -65,12 +65,12 @@ int	main(int argc, char **argv)
 	count = ft_count(argv);
 	arr = fill_array(argv, count);
 	ft_check_args(arr, count);
-	free(arr);
 	stack_a = (t_list **)malloc(sizeof(t_list));
 	stack_b = (t_list **)malloc(sizeof(t_list));
 	*stack_a = NULL;
 	*stack_b = NULL;
 	init_stack(stack_a, arr, count);
+	free(arr);
 	if (is_sorted(stack_a))
 	{
 		free_stack(stack_a);

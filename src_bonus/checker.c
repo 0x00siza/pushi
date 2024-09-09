@@ -68,32 +68,10 @@ static void	do_command_2(char *line, t_list **stack_a, t_list **stack_b)
 	}
 }
 
-void	print_checker_res(t_list **stack_a, t_list **stack_b)
+void	ft_check_command(t_list **stack_a, t_list **stack_b)
 {
-	if (is_sorted(stack_a))
-		ft_putendl_fd("OK\n", 1);
-	else
-		ft_putendl_fd("KO\n", 1);
-	if (*stack_a)
-		free_stack(stack_a);
-	if (*stack_b)
-		free_stack(stack_b);
-}
-
-int	main(int argc, char **argv)
-{
-	t_list	**stack_a;
-	t_list	**stack_b;
 	char	*line;
 
-	if (argc < 2)
-		return (0);
-	stack_a = (t_list **)malloc(sizeof(t_list));
-	stack_b = (t_list **)malloc(sizeof(t_list));
-	*stack_a = NULL;
-	*stack_b = NULL;
-	ft_check_args(argc, argv);
-	init_stack(stack_a, argc, argv);
 	line = get_next_line(0);
 	while (line)
 	{
@@ -106,5 +84,26 @@ int	main(int argc, char **argv)
 			ft_error("Error");
 		line = get_next_line(0);
 	}
+}
+
+int	main(int argc, char **argv)
+{
+	t_list	**stack_a;
+	t_list	**stack_b;
+	int		*arr;
+	int		count;
+
+	if (argc < 2)
+		return (0);
+	count = ft_count(argv);
+	arr = fill_array(argv, count);
+	ft_check_args(arr, count);
+	stack_a = (t_list **)malloc(sizeof(t_list));
+	stack_b = (t_list **)malloc(sizeof(t_list));
+	*stack_a = NULL;
+	*stack_b = NULL;
+	init_stack(stack_a, arr, count);
+	free(arr);
+	ft_check_command(stack_a, stack_b);
 	print_checker_res(stack_a, stack_b);
 }

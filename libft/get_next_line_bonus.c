@@ -106,7 +106,6 @@ char	*get_next_line(int fd)
 	char		*line;
 	static char	*save[10000];
 
-	ft_putstr_fd("> ", 1);
 	if (fd < 0 || BUFFER_SIZE <= 0 || read (fd, 0, 0) < 0)
 		return (0);
 	save[fd] = ft_read_str(fd, save[fd]);

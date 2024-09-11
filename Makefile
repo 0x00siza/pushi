@@ -21,7 +21,7 @@ all: 		${NAME}
 
 ${NAME}:	${OBJS}
 			
-					@make re -C ./libft
+					@make -C ./libft
 			 		@$(CC) ${CFLAGS} ${OBJS} -Llibft -lft -o ${NAME}
 			
 bonus:	${CHECK}

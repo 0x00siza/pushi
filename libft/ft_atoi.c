@@ -14,31 +14,33 @@
 
 static void	ft_error(char *msg)
 {
-	ft_putendl_fd(msg, 1);
+	ft_putendl_fd(msg, 2);
 	exit(0);
 }
 
 int	ft_atoi(const char *str)
 {
-	long	i;
-	long	number;
+	int		i;
 	int		sign;
+	long	number;
 
 	i = 0;
-	number = 0;
 	sign = 1;
-	while (str[i] && (str[i] == 32 || (str[i] >= 9 && str[i] <= 13)))
-		i++;
+	number = 0;
 	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
 			sign = -1;
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	if (str[i] == '\0')
+		ft_error("Error");
+	while (str[i])
 	{
-		number = (number * 10) + (str[i] - '0');
-		i++;
+		if (str[i] < '0' || str[i] > '9')
+			ft_error("Error");
+		else
+			number = number * 10 + (str[i++] - '0');
 	}
 	if (number < INT_MIN || number > INT_MAX)
 		ft_error("Error");

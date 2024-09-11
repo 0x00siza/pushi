@@ -32,21 +32,6 @@ int	check_duplicate(int *arr, int count)
 	return (0);
 }
 
-static int	ft_isnum(char *num)
-{
-	int	i;
-
-	i = 0;
-	if (num[0] == '-' || num[0] == '+')
-		i++;
-	while (num[i])
-	{
-		if (!ft_isdigit(num[i]))
-			return (0);
-		i++;
-	}
-	return (1);
-}
 
 void	ft_check_args(int *arr, int count)
 {
@@ -55,8 +40,6 @@ void	ft_check_args(int *arr, int count)
 	i = 0;
 	while (i < count)
 	{
-		if (!ft_isnum(ft_itoa(arr[i])))
-			ft_error("Error");
 		if (check_duplicate(arr, count))
 			ft_error("Error");
 		i++;

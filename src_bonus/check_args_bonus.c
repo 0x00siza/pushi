@@ -32,7 +32,6 @@ int	check_duplicate(int *arr, int count)
 	return (0);
 }
 
-
 void	ft_check_args(int *arr, int count)
 {
 	int		i;

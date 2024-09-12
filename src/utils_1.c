@@ -6,7 +6,7 @@
 /*   By: ner-roui <ner-roui@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 16:01:41 by ner-roui          #+#    #+#             */
-/*   Updated: 2024/09/09 16:19:34 by ner-roui         ###   ########.fr       */
+/*   Updated: 2024/09/12 01:32:32 by ner-roui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,9 @@ void	check(char *str)
 	int	i;
 
 	i = 0;
-	if (str[0] == '\0' || (str[0] == ' ' && str[1] == '\0'))
+	if (str[0] == '\0')
+		ft_error("Error");
+	if (str[i] == ' ')
 		ft_error("Error");
 }
 
